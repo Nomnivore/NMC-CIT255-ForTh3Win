@@ -29,7 +29,7 @@ namespace ForTh3Win.Models
 
         public ESRBEnum ESRBRating { get; set; }
 
-        public List<GenreEnum> Genres { get; set; } = new List<GenreEnum>();
+        public GenreEnum Genre { get; set; }
         
 
         [DataType(DataType.Date)]
