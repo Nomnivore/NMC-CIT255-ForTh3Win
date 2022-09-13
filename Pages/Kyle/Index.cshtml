@@ -1,0 +1,84 @@
+﻿@page
+@model ForTh3Win.Pages.Kyle.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Review[0].GameName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Review[0].Publisher)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Review[0].Reviewer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Review[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Review[0].ReviewerRating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Review[0].ReviewText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Review[0].ESRBRating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Review[0].Genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Review[0].ReleaseDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Review) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GameName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Publisher)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reviewer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReviewerRating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReviewText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ESRBRating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Genre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
