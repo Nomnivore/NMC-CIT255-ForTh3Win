@@ -1,7 +1,12 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using ForTh3Win.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddDbContext<ForTh3WinContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ForTh3WinContext") ?? throw new InvalidOperationException("Connection string 'ForTh3WinContext' not found.")));
 
 var app = builder.Build();
 
