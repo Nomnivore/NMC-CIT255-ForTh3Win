@@ -7,7 +7,7 @@ namespace ForTh3Win.Models
         public int ID { get; set; }
 
         [Required]
-        [StringLength(30)]
+        [StringLength(50)]
         public string GameName { get; set; } = String.Empty;
 
         [Required]
@@ -17,6 +17,7 @@ namespace ForTh3Win.Models
         public string Reviewer { get; set; } = String.Empty;
 
         [Required]
+        [StringLength(500)]
         public string Description { get; set; } = String.Empty;
 
         [Required]
