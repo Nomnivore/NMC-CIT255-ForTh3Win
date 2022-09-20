@@ -62,9 +62,68 @@ namespace ForTh3Win.Models
         [Display(Name = "Massively Multiplayer")]
         MassivelyMultiplayer,
 
+        [Display(Name = "Shooter")]
         Shooter,
+
+        [Display(Name = "Platformer")]
         Platformer,
 
-        //etc
+        [Display(Name = "Fighting")]
+        Fighting,
+
+        [Display(Name = "Survival")]
+        Survival,
+
+        [Display(Name = "Rhythm")]
+        Rhythm,
+
+        [Display(Name = "Battle Royale")]
+        Battle Royale,
+
+        [Display(Name = "Metroidvania")]
+        Metroidvania,
+
+        [Display(Name = "Adventure")]
+        Adventure,
+
+        [Display(Name = "Puzzle")]
+        Puzzle,
+
+        [Display(Name = "Tactical RPG")]
+        Tactical RPG,
+
+        [Display(Name = "Roguelike")]
+        Roguelike,
+
+        [Display(Name = "Simulation")]
+        Simulation,
+
+        [Display(Name = "Turn Based Strategy")]
+        Turn Based Strategy,
+
+        [Display(Name = "4X")]
+        4X,
+
+        [Display(Name = "Racing")]
+        Racing,
+
+        [Display(Name = "Sports")]
+        Sports,
+
+        [Display(Name = "Sandbox")]
+        Sandbox,
+
+        [Display(Name = "Party Game")]
+        Party Game,
+
+        [Display(Name = "Horror")]
+        Horror,
+
+        [Display(Name = "MOBA")]
+        MOBA,
+
+        [Display(Name = "Tabletop")]
+        Tabletop,
+       
     }
 }
