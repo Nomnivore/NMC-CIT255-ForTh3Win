@@ -5,80 +5,48 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div class="container">
+    <h1 class="text-center">Game Reviews</h1>
+    <h2 class="text-center fs-3 fw-normal fst-italic">Find your next favorite game</h2>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Review[0].GameName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Review[0].Publisher)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Review[0].Reviewer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Review[0].Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Review[0].ReviewerRating)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Review[0].ReviewText)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Review[0].ESRBRating)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Review[0].Genre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Review[0].ReleaseDate)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Review) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.GameName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Publisher)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Reviewer)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReviewerRating)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReviewText)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ESRBRating)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Genre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReleaseDate)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <div class="d-flex w-100 flex-wrap justify-content-between mt-4 mb-2" style="gap: .5rem;">
+        <div class="d-flex" style="gap: 1rem;">
+            <a href="#" class="btn btn-outline-secondary">Filter Genre</a>
+            <a href="#" class="btn btn-outline-secondary">Search</a>
+        </div>
+        <div>
+            <a asp-page="Create" class="btn btn-primary">Write a Review</a>
+        </div>
+        <div class="d-flex justify-content-end" style="gap: 1rem;">
+            <a href="#" class="btn btn-outline-secondary">Sort Ascending</a>
+            <a href="#" class="btn btn-outline-secondary">Sort Descending</a>
+        </div>
+    </div>
+
+    <div class="d-flex w-100 flex-wrap justify-content-center">
+        @foreach (var item in Model.Review) {
+            <div class="d-flex flex-column m-2 p-2 border border-2 rounded-3" style="gap: 1rem; min-width: 300px; max-width: 700px;">
+                <div class="d-flex justify-content-between" style="gap: 2rem;">
+                    <div class="d-flex flex-column">
+                        <span class="fs-4 fw-bold">@item.GameName</span>
+                        <span class="fs-5">Review by @item.Reviewer</span>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <span class="fs-4 text-end fw-bold">@item.ReviewerRating.ToString("0.0")</span>
+                        <span class="fs-5 text-end fw-light">@Html.DisplayFor(modelItem => item.Genre)</span>
+                    </div>
+                </div>
+                <div class="flex w-100" style="gap: 1rem;">
+                    <a asp-page="./Details" asp-route-id="@item.ID" class="btn btn-primary">Read</a>
+                    <a asp-page="./Edit" asp-route-id="@item.ID" class="btn btn-secondary">Edit</a>
+                    <a asp-page="./Delete" asp-route-id="@item.ID" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        }
+    </div>
+
+
+    @*@foreach (var item in Model.Review) {
+
+    }*@
+</div>
