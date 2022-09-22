@@ -7,7 +7,7 @@ namespace ForTh3Win.Models
         public int ID { get; set; }
 
         [Required]
-        [StringLength(30)]
+        [StringLength(50)]
         public string GameName { get; set; } = String.Empty;
 
         [Required]
@@ -17,6 +17,7 @@ namespace ForTh3Win.Models
         public string Reviewer { get; set; } = String.Empty;
 
         [Required]
+        [StringLength(500)]
         public string Description { get; set; } = String.Empty;
 
         [Required]
@@ -78,7 +79,7 @@ namespace ForTh3Win.Models
         Rhythm,
 
         [Display(Name = "Battle Royale")]
-        Battle Royale,
+        BattleRoyale,
 
         [Display(Name = "Metroidvania")]
         Metroidvania,
@@ -90,7 +91,7 @@ namespace ForTh3Win.Models
         Puzzle,
 
         [Display(Name = "Tactical RPG")]
-        Tactical RPG,
+        TacticalRPG,
 
         [Display(Name = "Roguelike")]
         Roguelike,
@@ -99,10 +100,10 @@ namespace ForTh3Win.Models
         Simulation,
 
         [Display(Name = "Turn Based Strategy")]
-        Turn Based Strategy,
+        TurnBasedStrategy,
 
         [Display(Name = "4X")]
-        4X,
+        FourX,
 
         [Display(Name = "Racing")]
         Racing,
@@ -114,7 +115,7 @@ namespace ForTh3Win.Models
         Sandbox,
 
         [Display(Name = "Party Game")]
-        Party Game,
+        PartyGame,
 
         [Display(Name = "Horror")]
         Horror,
