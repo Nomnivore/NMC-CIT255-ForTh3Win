@@ -24,9 +24,8 @@ namespace ForTh3Win.Pages.Kyle
         public IList<Review> Review { get;set; } = default!;
         [BindProperty(SupportsGet = true)]
         public string ? SearchString { get; set; }
-        public SelectList ? Genres { get; set; }
         [BindProperty(SupportsGet = true)]
-        public string ? GameGenre { get; set; }
+        public int ? GameGenreQuery { get; set; }
 
         public async Task OnGetAsync()
         {
@@ -42,6 +41,12 @@ namespace ForTh3Win.Pages.Kyle
                 reviews = reviews.Where(s => s.GameName.Contains(SearchString));
             }
 
+            if (GameGenreQuery.HasValue && Enum.IsDefined(typeof(GenreEnum), GameGenreQuery)){
+                var genre = (GenreEnum)GameGenreQuery;
+
+                reviews = reviews.Where(x => x.Genre == genre);
+            }
+            
             Review = await reviews.ToListAsync();
         }
     }

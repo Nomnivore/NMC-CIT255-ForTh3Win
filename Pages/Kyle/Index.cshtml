@@ -11,13 +11,14 @@
 
     @*this should be grid*@
     <div class="d-flex w-100 flex-wrap justify-content-between mt-4 mb-2" style="gap: .5rem;"> 
-        <div class="d-flex" style="gap: 1rem;">
-            <a href="#" class="btn btn-outline-secondary">Filter Genre</a>
-            <form class="d-flex" style="gap: .25rem;">
-                <input type="text" class="form-control" placeholder="Search by Game" class="" asp-for="SearchString" />
-                <input type="submit" value="Go" class="btn btn-outline-info" />
-            </form>
-        </div>
+        <form class="d-flex" style="gap: 1rem;">
+            @*<a href="#" class="btn btn-outline-secondary">Filter Genre</a>*@
+            <select asp-for="GameGenreQuery" class="form-control" asp-items="Html.GetEnumSelectList<Models.GenreEnum>()">
+                <option value="">All Genres</option>
+            </select>
+            <input type="text" class="form-control" placeholder="Search by Game" class="" asp-for="SearchString" />
+            <input type="submit" value="Go" class="btn btn-outline-info" />
+        </form>
         <div>
             <a asp-page="Create" class="btn btn-primary">Write a Review</a>
         </div>
