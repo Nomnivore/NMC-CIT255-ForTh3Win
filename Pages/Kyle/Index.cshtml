@@ -9,10 +9,14 @@
     <h1 class="text-center">Game Reviews</h1>
     <h2 class="text-center fs-3 fw-normal fst-italic">Find your next favorite game</h2>
 
-    <div class="d-flex w-100 flex-wrap justify-content-between mt-4 mb-2" style="gap: .5rem;">
+    @*this should be grid*@
+    <div class="d-flex w-100 flex-wrap justify-content-between mt-4 mb-2" style="gap: .5rem;"> 
         <div class="d-flex" style="gap: 1rem;">
             <a href="#" class="btn btn-outline-secondary">Filter Genre</a>
-            <a href="#" class="btn btn-outline-secondary">Search</a>
+            <form class="d-flex" style="gap: .25rem;">
+                <input type="text" class="form-control" placeholder="Search by Game" class="" asp-for="SearchString" />
+                <input type="submit" value="Go" class="btn btn-outline-info" />
+            </form>
         </div>
         <div>
             <a asp-page="Create" class="btn btn-primary">Write a Review</a>
@@ -23,6 +27,7 @@
         </div>
     </div>
 
+    @*this could also be grid, to force more consistent item sizes*@
     <div class="d-flex w-100 flex-wrap justify-content-center">
         @foreach (var item in Model.Review) {
             <div class="d-flex flex-column m-2 p-2 border border-2 rounded-3" style="gap: 1rem; min-width: 300px; max-width: 700px;">
@@ -44,9 +49,4 @@
             </div>
         }
     </div>
-
-
-    @*@foreach (var item in Model.Review) {
-
-    }*@
 </div>
