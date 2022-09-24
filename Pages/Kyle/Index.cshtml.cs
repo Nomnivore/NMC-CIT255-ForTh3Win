@@ -27,6 +27,9 @@ namespace ForTh3Win.Pages.Kyle
         [BindProperty(SupportsGet = true)]
         public int ? GameGenreQuery { get; set; }
 
+        [BindProperty(SupportsGet = true)]
+        public string ? SortOrder { get; set; }
+
         public async Task OnGetAsync()
         {
             //if (_context.Review != null)
@@ -46,7 +49,18 @@ namespace ForTh3Win.Pages.Kyle
 
                 reviews = reviews.Where(x => x.Genre == genre);
             }
-            
+
+            if (!string.IsNullOrEmpty(SortOrder))
+            {
+                if (SortOrder == "asc")
+                {
+                    reviews = reviews.OrderByDescending(x => x.GameName).Reverse();
+                } else if (SortOrder == "desc")
+                {
+                    reviews = reviews.OrderByDescending(x => x.GameName);
+                }
+            }
+
             Review = await reviews.ToListAsync();
         }
     }
