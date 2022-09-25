@@ -4,12 +4,8 @@
 @{
     ViewData["Title"] = "Details";
 }
-
-<h1>Details</h1>
-
-<div>
-    <h4>Review</h4>
-    <hr />
+<div class="bg-secondary text-white" >
+    <h1 class="text-center" style="font-family:'Book Antiqua'">Details</h1>
     <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Review.GameName)
@@ -68,6 +64,6 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Review?.ID">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Edit" class="btn btn-sm btn-outline-dark bg-primary text-white px-3" asp-route-id="@Model.Review?.ID">Edit</a> |
+    <a asp-page="./Index" class="btn btn-sm btn-outline-dark bg-primary text-white px-3">Back to List</a>
 </div>
