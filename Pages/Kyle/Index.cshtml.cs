@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using ForTh3Win.Data;
 using ForTh3Win.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.View;
 
 namespace ForTh3Win.Pages.Kyle
 {
@@ -20,13 +22,46 @@ namespace ForTh3Win.Pages.Kyle
         }
 
         public IList<Review> Review { get;set; } = default!;
+        [BindProperty(SupportsGet = true)]
+        public string ? SearchString { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public int ? GameGenreQuery { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string ? SortOrder { get; set; }
 
         public async Task OnGetAsync()
         {
-            if (_context.Review != null)
+            //if (_context.Review != null)
+            //{
+            //    Review = await _context.Review.ToListAsync();
+            //}
+
+            var reviews = from r in _context.Review
+                          select r;
+            if (!string.IsNullOrEmpty(SearchString))
             {
-                Review = await _context.Review.ToListAsync();
+                reviews = reviews.Where(s => s.GameName.Contains(SearchString));
             }
+
+            if (GameGenreQuery.HasValue && Enum.IsDefined(typeof(GenreEnum), GameGenreQuery)){
+                var genre = (GenreEnum)GameGenreQuery;
+
+                reviews = reviews.Where(x => x.Genre == genre);
+            }
+
+            if (!string.IsNullOrEmpty(SortOrder))
+            {
+                if (SortOrder == "asc")
+                {
+                    reviews = reviews.OrderByDescending(x => x.GameName).Reverse();
+                } else if (SortOrder == "desc")
+                {
+                    reviews = reviews.OrderByDescending(x => x.GameName);
+                }
+            }
+
+            Review = await reviews.ToListAsync();
         }
     }
 }
