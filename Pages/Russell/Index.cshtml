@@ -44,6 +44,12 @@
         </tr>
     </thead>
     <tbody>
+         <form>
+                    <p>
+                        Title: <input type="text" asp-for="SearchString" />
+                        <input type="submit" value="Filter" />
+                    </p>
+         </form>
 @foreach (var item in Model.Review) {
         <tr>
             <td>
@@ -78,6 +84,7 @@
                 <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
             </td>
+               
         </tr>
 }
     </tbody>
