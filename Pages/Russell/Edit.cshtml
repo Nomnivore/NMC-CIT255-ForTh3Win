@@ -5,10 +5,9 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<div class="bg-secondary text-white">
+<h1 class="text-center" style="font-family:'Book Antiqua'">Edit</h1>
 
-<h4>Review</h4>
-<hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
@@ -60,14 +59,18 @@
                 <span asp-validation-for="Review.ReleaseDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <br/>
+                    <input type="submit" value="Save" class="btn btn-primary btn-outline-dark" />
+                <p></p>
             </div>
         </form>
     </div>
 </div>
-
+</div>
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <p></p>
+    <a asp-page="./Index" class="btn btn-sm btn-outline-dark bg-primary text-white px-3">Back to List</a>
+
 </div>
 
 @section Scripts {
