@@ -4,32 +4,77 @@
 @{
     ViewData["Title"] = "Index";
 }
+<head>
+    <style>
+        * {
+            color: lightgray;
+        }
 
+        body {
+            background-color: #30233E;
+        }
+
+        .sidebar {
+            height: auto; /* Full-height: remove this if you want "auto" height */
+            width: 160px; /* Set the width of the sidebar */
+            position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+            z-index: 1; /* Stay on top */
+            background-color: #111; /* Black */
+            overflow-x: hidden; /* Disable horizontal scroll */
+            padding-top: 20px;
+        }
+
+        .table {
+            margin-left: 160px; /* Same as the width of the sidebar */
+            padding: 0px 10px;
+        }
+    </style>
+</head>
+<body>
 <h1>Index</h1>
-
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+    <form asp-page="./Index" method="get" class="sidebar" >
+        <input type="text" placeholder="Title" name="searchString">
+        <select name="esrbSearch">
+            <option value="">ESRB Rating</option>
+            <option value="Everyone">Everyone</option>
+            <option value="EveryoneTenPlus">Everyone 10+</option>
+            <option value="Teen">Teen</option>
+            <option value="Mature">Mature 17+</option>
+        </select>
+        <select name="genreSearch">
+            <option value="">Genres</option>
+            <option value="FourX">4X</option>
+            <option value="Adventure">Adventure</option>
+            <option value="BattleRoyale">Battle Royale</option>
+            <option value="Fighting">Fighting</option>
+            <option value="Horror">Horror</option>
+            <option value="MassivelyMultiplayer">Massively Multiplayer</option>
+            <option value="Metroidvania">Metroidvania</option>
+            <option value="MOBA">MOBA</option>
+            <option value="PartyGame">Party Game</option>
+            <option value="Platformer">Platformer</option>
+            <option value="Puzzle">Puzzle</option>
+            <option value="Racing">Racing</option>
+            <option value="RealTimeStrategy">Real Time Strategy</option>
+            <option value="Rhythm">Rhythm</option>
+            <option value="Rougelike">Rougelike</option>
+            <option value="Sandbox">Sandbox</option>
+            <option value="Shooter">Shooter</option>
+            <option value="Simulation">Simulation</option>
+            <option value="Sports">Sports</option>
+            <option value="Survival">Survival</option>
+            <option value="Tabletop">Tabletop </option>
+            <option value="TacticalRPG">Tactical RPG</option>
+            <option value="TurnBasedStrategy">Turn Based Strategy</option>
+        </select>
+        <button type="submit" value="Search" id="searchBtn">Search</button>
+        <p><a asp-page="Create">Create New</a></p>
+    </form>
 <table class="table">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Review[0].GameName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Review[0].Publisher)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Review[0].Reviewer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Review[0].Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Review[0].ReviewerRating)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Review[0].ReviewText)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Review[0].ESRBRating)
@@ -44,25 +89,11 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Review) {
+@foreach (var item in Model.Review)
+{
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.GameName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Publisher)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Reviewer)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReviewerRating)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReviewText)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ESRBRating)
@@ -82,3 +113,4 @@
 }
     </tbody>
 </table>
+</body>
