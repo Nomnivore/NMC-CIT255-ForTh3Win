@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using ForTh3Win.Data;
 using ForTh3Win.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Runtime.Versioning;
+using System.Resources;
 
 namespace ForTh3Win.Pages.Russell
 {
@@ -28,20 +30,33 @@ namespace ForTh3Win.Pages.Russell
         public int? Genre { get; set; }
         [BindProperty(SupportsGet = true)]
         public string? Titles { get; set; }
+        public string NameSort { get; set; }
 
         // public IList<Review> Review { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string sortOrder)
         {
+            NameSort = String.IsNullOrEmpty(sortOrder) ? "desc" : "";
             if (_context.Review != null)
             {
                 Review = await _context.Review.ToListAsync();
             }
 
+            
+
             var title = from m in _context.Review
                          select m;
 
-           
+            if (sortOrder == "desc")
+            {
+                title = title.OrderByDescending(m => m.GameName);
+            }
+            else
+            {
+                title = title.OrderBy(m => m.GameName);
+            }
+
+
             if (!string.IsNullOrEmpty(SearchString))
             {
                 title = title.Where(s => s.GameName.Contains(SearchString));
