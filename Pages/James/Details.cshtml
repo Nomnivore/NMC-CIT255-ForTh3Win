@@ -4,70 +4,80 @@
 @{
     ViewData["Title"] = "Details";
 }
+<head>
+    <style>
+        * {
+            color: #lightgray;
+        }
 
-<h1>Details</h1>
+        body {
+            background-color: #30233E;
+        }
 
-<div>
-    <h4>Review</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Review.GameName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Review.GameName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Review.Publisher)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Review.Publisher)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Review.Reviewer)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Review.Reviewer)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Review.Description)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Review.Description)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Review.ReviewerRating)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Review.ReviewerRating)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Review.ReviewText)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Review.ReviewText)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Review.ESRBRating)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Review.ESRBRating)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Review.Genre)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Review.Genre)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Review.ReleaseDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Review.ReleaseDate)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.Review?.ID">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
-</div>
+        .sideleft {
+            width: 30%;
+            display:inline-block;
+            z-index: 1;
+            background-color: #111;
+            color: #9747FF;
+            border-right: 6px solid #9747FF;
+            overflow-x: hidden;
+            padding: 20px;
+            flex: 1;
+        }
+
+        .sideright {
+            width: 60%;
+            display:inline-block;
+            z-index: 1;
+            background-color: #111;
+            color: #9747FF;
+            text-align:right;
+            overflow-x: hidden;
+            padding: 20px;
+            flex: 1;
+        }
+
+        .score {
+            background-color:#9747FF;
+            color: lightgrey;
+            text-align:center;
+            height: 50px;
+            width: 50px;
+            border-radius: 10px;
+        }
+        .plate {
+            background-color: #111;
+            color: lightgray;
+            margin-top: 100px;
+            padding: 20px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="plate">
+        <div style="display: flex;">
+            <div class="sideleft">
+                <h4>@Html.DisplayFor(model => model.Review.GameName)</h4>
+                <p>Developer/Publisher: @Html.DisplayFor(model => model.Review.Publisher)</p>
+                <p>Release Date: @Html.DisplayFor(model => model.Review.ReleaseDate)</p>
+                <p>ESRB Rating: @Html.DisplayFor(model => model.Review.ESRBRating)</p>
+                <p>Genre(s): @Html.DisplayFor(model => model.Review.Genre)</p>
+                <p>@Html.DisplayFor(model => model.Review.Description)</p>
+            </div>
+            <div class="sideright">
+                <h4>Review by @Html.DisplayFor(model => model.Review.Reviewer)</h4>
+                <p>@Html.DisplayFor(model => model.Review.ReviewText)</p>
+            </div>
+            <div class="score">
+                <h1>@Html.DisplayFor(model => model.Review.ReviewerRating)</h1>
+            </div>
+        </div>
+        <hr />
+        <div>
+            <a asp-page="./Edit" asp-route-id="@Model.Review?.ID">Edit</a> |
+            <a asp-page="./Index">Back to List</a>
+        </div>
+    </div>
+</body>
