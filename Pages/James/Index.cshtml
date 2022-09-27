@@ -7,110 +7,126 @@
 <head>
     <style>
         * {
-            color: lightgray;
+            color: #111;
         }
 
         body {
             background-color: #30233E;
         }
 
+        thead {
+            margin: 15px;
+        }
         .sidebar {
-            height: auto; /* Full-height: remove this if you want "auto" height */
-            width: 160px; /* Set the width of the sidebar */
-            position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-            z-index: 1; /* Stay on top */
-            background-color: #111; /* Black */
-            overflow-x: hidden; /* Disable horizontal scroll */
+            height: auto; 
+            width: 160px; 
+            position: fixed; 
+            z-index: 1; 
+            background-color: #111; 
+            overflow-x: hidden; 
             padding-top: 20px;
         }
 
         .table {
-            margin-left: 160px; /* Same as the width of the sidebar */
-            padding: 0px 10px;
+            margin-left: 175px; 
+            background-color: #111;
+            padding: 100px;
+        }
+
+        .table > :not(caption) > * > th {
+            background-color: #9747FF;
+            border-radius: 15px;
+            border: 3px solid #111;
+
+        }
+        .table > :not(caption) > * > td {
+                background-color: lightgray;
+                border-radius: 15px;
+                border: 3px solid #111;
         }
     </style>
 </head>
 <body>
-<h1>Index</h1>
-    <form asp-page="./Index" method="get" class="sidebar" >
-        <input type="text" placeholder="Title" name="searchString">
-        <select name="esrbSearch">
-            <option value="">ESRB Rating</option>
-            <option value="Everyone">Everyone</option>
-            <option value="EveryoneTenPlus">Everyone 10+</option>
-            <option value="Teen">Teen</option>
-            <option value="Mature">Mature 17+</option>
-        </select>
-        <select name="genreSearch">
-            <option value="">Genres</option>
-            <option value="FourX">4X</option>
-            <option value="Adventure">Adventure</option>
-            <option value="BattleRoyale">Battle Royale</option>
-            <option value="Fighting">Fighting</option>
-            <option value="Horror">Horror</option>
-            <option value="MassivelyMultiplayer">Massively Multiplayer</option>
-            <option value="Metroidvania">Metroidvania</option>
-            <option value="MOBA">MOBA</option>
-            <option value="PartyGame">Party Game</option>
-            <option value="Platformer">Platformer</option>
-            <option value="Puzzle">Puzzle</option>
-            <option value="Racing">Racing</option>
-            <option value="RealTimeStrategy">Real Time Strategy</option>
-            <option value="Rhythm">Rhythm</option>
-            <option value="Rougelike">Rougelike</option>
-            <option value="Sandbox">Sandbox</option>
-            <option value="Shooter">Shooter</option>
-            <option value="Simulation">Simulation</option>
-            <option value="Sports">Sports</option>
-            <option value="Survival">Survival</option>
-            <option value="Tabletop">Tabletop </option>
-            <option value="TacticalRPG">Tactical RPG</option>
-            <option value="TurnBasedStrategy">Turn Based Strategy</option>
-        </select>
-        <button type="submit" value="Search" id="searchBtn">Search</button>
-        <p><a asp-page="Create">Create New</a></p>
-    </form>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Review[0].GameName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Review[0].ESRBRating)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Review[0].Genre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Review[0].ReleaseDate)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Review)
-{
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.GameName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ESRBRating)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Genre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReleaseDate)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <h1>Index</h1>
+        <form asp-page="./Index" method="get" class="sidebar" >
+            <input type="text" placeholder="Title" name="searchString">
+            <select name="esrbSearch" style:"width:auto">
+                <option value="">ESRB Rating</option>
+                <option value="Everyone">Everyone</option>
+                <option value="EveryoneTenPlus">Everyone 10+</option>
+                <option value="Teen">Teen</option>
+                <option value="Mature">Mature 17+</option>
+            </select>
+            <select name="genreSearch" style:"width:auto">
+                <option value="">Genres</option>
+                <option value="FourX">4X</option>
+                <option value="Adventure">Adventure</option>
+                <option value="BattleRoyale">Battle Royale</option>
+                <option value="Fighting">Fighting</option>
+                <option value="Horror">Horror</option>
+                <option value="MassivelyMultiplayer">Massively Multiplayer</option>
+                <option value="Metroidvania">Metroidvania</option>
+                <option value="MOBA">MOBA</option>
+                <option value="PartyGame">Party Game</option>
+                <option value="Platformer">Platformer</option>
+                <option value="Puzzle">Puzzle</option>
+                <option value="Racing">Racing</option>
+                <option value="RealTimeStrategy">Real Time Strategy</option>
+                <option value="Rhythm">Rhythm</option>
+                <option value="Rougelike">Rougelike</option>
+                <option value="Sandbox">Sandbox</option>
+                <option value="Shooter">Shooter</option>
+                <option value="Simulation">Simulation</option>
+                <option value="Sports">Sports</option>
+                <option value="Survival">Survival</option>
+                <option value="Tabletop">Tabletop </option>
+                <option value="TacticalRPG">Tactical RPG</option>
+                <option value="TurnBasedStrategy">Turn Based Strategy</option>
+            </select>
+            <button type="submit" value="Search" id="searchBtn">Search</button>
+            <p><a asp-page="Create">Create New</a></p>
+        </form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="hCell">
+                    @Html.DisplayNameFor(model => model.Review[0].GameName)
+                </th>
+                <th class="hCell">
+                    @Html.DisplayNameFor(model => model.Review[0].ESRBRating)
+                </th>
+                <th class="hCell">
+                    @Html.DisplayNameFor(model => model.Review[0].Genre)
+                </th>
+                <th class="hCell">
+                    @Html.DisplayNameFor(model => model.Review[0].ReleaseDate)
+                </th>
+                <th class="hCell"></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model.Review)
+    {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GameName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ESRBRating)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReleaseDate)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>
 </body>
