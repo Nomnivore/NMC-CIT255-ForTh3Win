@@ -51,6 +51,8 @@ namespace ForTh3Win.Pages.James
             {
                 Review = await reviewList.AsNoTracking().ToListAsync();
             }
+            return filtered;
+            return filtered;
         }
     } 
 }
