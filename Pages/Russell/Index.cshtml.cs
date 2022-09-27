@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using ForTh3Win.Data;
 using ForTh3Win.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace ForTh3Win.Pages.Russell
 {
@@ -19,7 +20,16 @@ namespace ForTh3Win.Pages.Russell
             _context = context;
         }
 
-        public IList<Review> Review { get;set; } = default!;
+
+        public IList<Review> Review { get; set; } = default!;
+        [BindProperty(SupportsGet = true)]
+        public string? SearchString { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public int? Genre { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string? Titles { get; set; }
+
+        // public IList<Review> Review { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
@@ -27,6 +37,31 @@ namespace ForTh3Win.Pages.Russell
             {
                 Review = await _context.Review.ToListAsync();
             }
+
+            var title = from m in _context.Review
+                         select m;
+
+           
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                title = title.Where(s => s.GameName.Contains(SearchString));
+            }
+            
+            if (Genre.HasValue && Enum.IsDefined(typeof(GenreEnum), Genre))
+            {
+                var genre = (GenreEnum)Genre;
+
+                title = title.Where(x => x.Genre == genre);
+            }
+
+
+           /* Genre = new SelectList(await title.Distinct().ToListAsync());*/
+            Review = await title.ToListAsync();
+
+          
+
         }
+
+       
     }
 }

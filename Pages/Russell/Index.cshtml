@@ -1,16 +1,29 @@
 ﻿@page
+@using ForTh3Win.Models
 @model ForTh3Win.Pages.Russell.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Game Review Search";
 }
 
-<h1>Index</h1>
+<head>
+    <style>
+        body {
+            background-image: url(Images/bg.jpg);
+        }
+    </style>
+</head>
+<body></body>
+
+
+
+<div class="bg-dark">
+    <h1 class="text-center bg-secondary text-white border-info" style="font-family:'Book Antiqua'">Search Russell's Reviews!</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create" class="btn btn-lg btn-outline-info bg-secondary text-white px-5">Create New</a>
 </p>
-<table class="table">
+<table class="table bg-secondary text-white">
     <thead>
         <tr>
             <th>
@@ -44,6 +57,20 @@
         </tr>
     </thead>
     <tbody>
+         <form class=" row">
+                    <p class="text-white col-sm-6">
+                        Game Name: <input type="text" asp-for="SearchString" />
+                        
+                    </p>
+                    <p >
+                        <label asp-for="Genre" class="control-label"></label>
+                        <select asp-for="Genre" class="form-control" asp-items="Html.GetEnumSelectList<GenreEnum>()">
+                            <option value="">Choose a Genre:</option>
+                        </select>    
+                    </p>
+                    <input type="submit" value="Filter" />
+                    <p></p>
+         </form>
 @foreach (var item in Model.Review) {
         <tr>
             <td>
@@ -74,11 +101,13 @@
                 @Html.DisplayFor(modelItem => item.ReleaseDate)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                        <a asp-page="./Edit" class="btn btn-sm btn-outline-dark bg-primary text-white px-3" asp-route-id="@item.ID">Edit</a> 
+                        <a asp-page="./Details" class="btn btn-sm btn-outline-dark bg-primary text-white px-3" asp-route-id="@item.ID">Details</a> 
+                        <a asp-page="./Delete" class="btn btn-sm btn-outline-dark bg-danger text-white px-3" asp-route-id="@item.ID">Delete</a>
             </td>
+               
         </tr>
 }
     </tbody>
 </table>
+</div>
