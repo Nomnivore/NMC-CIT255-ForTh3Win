@@ -1,5 +1,33 @@
 ﻿@page
 @model ForTh3Win.Pages.Kyle.EditModel
+@section head{
+    <script type="text/javascript">
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const counters = [
+                {
+                    textarea: document.getElementById("reviewText"),
+                    counter: document.getElementById("reviewCounter")
+                },
+                {
+                    textarea: document.getElementById("descText"),
+                    counter: document.getElementById("descCounter")
+                }
+            ];
+
+            counters.forEach(({textarea, counter}) => {
+                textarea.addEventListener("keyup", () => {
+                    counter.innerText = textarea.value.length
+                });
+
+                // set the initial count
+                textarea.dispatchEvent(new KeyboardEvent("keyup", { key: "x" }));
+            });
+
+        });
+    </script>
+}
 
 @{
     ViewData["Title"] = "Edit";
@@ -31,7 +59,8 @@
             </div>
             <div class="form-group">
                 <label asp-for="Review.Description" class="control-label"></label>
-                <input asp-for="Review.Description" class="form-control" />
+                <textarea asp-for="Review.Description" rows="4" id="descText" class="form-control"></textarea>
+                <small><span id="descCounter">0</span>/500</small>
                 <span asp-validation-for="Review.Description" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -41,7 +70,8 @@
             </div>
             <div class="form-group">
                 <label asp-for="Review.ReviewText" class="control-label"></label>
-                <input asp-for="Review.ReviewText" class="form-control" />
+                <textarea asp-for="Review.ReviewText" rows="4" id="reviewText" class="form-control"></textarea>
+                <small><span id="reviewCounter">0</span>/500</small>
                 <span asp-validation-for="Review.ReviewText" class="text-danger"></span>
             </div>
             <div class="form-group">
