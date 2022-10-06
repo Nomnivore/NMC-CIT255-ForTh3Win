@@ -8,6 +8,7 @@ namespace ForTh3Win.Models
 
         [Required]
         [StringLength(50)]
+        [Display(Name = "Game Name")]
         public string GameName { get; set; } = String.Empty;
 
         [Required]
@@ -22,18 +23,21 @@ namespace ForTh3Win.Models
 
         [Required]
         [Range(0, 10)]
+        [Display(Name = "Reviewer Rating")]
         public double ReviewerRating { get; set; }
 
         [Required]
         [StringLength(500)]
+        [Display(Name = "Review")]
         public string ReviewText { get; set; } = String.Empty;
 
+        [Display(Name = "ESRB Rating")]
         public ESRBEnum ESRBRating { get; set; }
 
         public GenreEnum Genre { get; set; }
         
-
         [DataType(DataType.Date)]
+        [Display(Name = "Release Date")]
         public DateTime ReleaseDate { get; set; }
 
     }
