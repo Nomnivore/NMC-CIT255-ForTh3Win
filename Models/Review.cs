@@ -21,7 +21,7 @@ namespace ForTh3Win.Models
         public string Description { get; set; } = String.Empty;
 
         [Required]
-        [Range(0, 10)]
+        [Range(0, 5)]
         public double ReviewerRating { get; set; }
 
         [Required]
