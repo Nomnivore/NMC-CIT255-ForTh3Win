@@ -66,7 +66,8 @@ namespace ForTh3Win.Pages.Kyle
                 }
             }
 
-            return RedirectToPage("./Index");
+            //return RedirectToPage("./Index");
+            return RedirectToPage("./Details", new { id = Review.ID });
         }
 
         private bool ReviewExists(int id)
