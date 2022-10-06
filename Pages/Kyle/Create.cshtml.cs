@@ -39,7 +39,7 @@ namespace ForTh3Win.Pages.Kyle
             _context.Review.Add(Review);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Details", new { id = Review.ID });
         }
     }
 }
