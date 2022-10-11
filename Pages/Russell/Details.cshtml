@@ -14,63 +14,55 @@
 }
 <div class="bg-secondary text-white" >
     <h1 class="text-center" style="font-family:'Book Antiqua'">Details</h1>
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Review.GameName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Review.GameName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Review.Publisher)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Review.Publisher)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Review.Reviewer)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Review.Reviewer)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Review.Description)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Review.Description)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Review.ReviewerRating)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Review.ReviewerRating)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Review.ReviewText)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Review.ReviewText)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Review.ESRBRating)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Review.ESRBRating)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Review.Genre)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Review.Genre)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Review.ReleaseDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Review.ReleaseDate)
-        </dd>
-    </dl>
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-dark">
+                @Html.DisplayNameFor(model => model.Review.GameName):  @Html.DisplayFor(model => model.Review.GameName)
+            </li>
+        </ul>
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-dark">
+            @Html.DisplayNameFor(model => model.Review.Publisher):  @Html.DisplayFor(model => model.Review.Publisher)
+        </li>
+    </ul>
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-dark">
+            @Html.DisplayNameFor(model => model.Review.Reviewer):  @Html.DisplayFor(model => model.Review.Reviewer)
+        </li>
+    </ul>
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-dark">
+            @Html.DisplayNameFor(model => model.Review.Description):  @Html.DisplayFor(model => model.Review.Description)
+        </li>
+    </ul>
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-dark">
+            @Html.DisplayNameFor(model => model.Review.ReviewerRating):  @Html.DisplayFor(model => model.Review.ReviewerRating)
+        </li>
+    </ul>
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-dark">
+            @Html.DisplayNameFor(model => model.Review.ReviewText):  @Html.DisplayFor(model => model.Review.ReviewText)
+        </li>
+    </ul>
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-dark">
+            @Html.DisplayNameFor(model => model.Review.ESRBRating):  @Html.DisplayFor(model => model.Review.ESRBRating)
+        </li>
+    </ul>
+
+
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-dark">
+            @Html.DisplayNameFor(model => model.Review.Genre):  @Html.DisplayFor(model => model.Review.Genre)
+        </li>
+    </ul>
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-dark">
+            @Html.DisplayNameFor(model => model.Review.ReleaseDate):  @Html.DisplayFor(model => model.Review.ReleaseDate)
+        </li>
+    </ul>
 </div>
+<p></p>
 <div>
     <a asp-page="./Edit" class="btn btn-sm btn-outline-dark bg-primary text-white px-3" asp-route-id="@Model.Review?.ID">Edit</a> |
     <a asp-page="./Index" class="btn btn-sm btn-outline-dark bg-primary text-white px-3">Back to List</a>

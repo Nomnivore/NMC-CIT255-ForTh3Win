@@ -5,6 +5,8 @@
     <style type="text/css">
         body {
             background-image: url('/Images/bg.jpg');
+            width: auto;
+            height: auto;
             margin: 0;
         }
     </style>
@@ -18,11 +20,10 @@
 
 <div class="bg-dark">
     <h1 class="text-center bg-secondary text-white border-info" style="font-family:'Book Antiqua'">Search Russell's Reviews!</h1>
-
 <p>
     <a asp-page="Create" class="btn btn-lg btn-outline-info bg-secondary text-white px-5">Create New</a>
 </p>
-<table class="table bg-secondary text-white">
+    <table class="table bg-secondary text-white table-bordered table-dark table-hover table-sm table-responsive">
     <thead>
         <tr>
             <th>
@@ -34,33 +35,20 @@
                 @Html.DisplayNameFor(model => model.Review[0].Publisher)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Review[0].Reviewer)
+                Rating
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Review[0].Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Review[0].ReviewerRating)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Review[0].ReviewText)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Review[0].ESRBRating)
+                ESRB Rating
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Review[0].Genre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Review[0].ReleaseDate)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
          <form class=" row">
-                    <p class="text-white col-sm-6">
-                        Game Name: <input type="text" asp-for="SearchString" />
+                    <p class="text-white col-sm-6">Game Name: <input type="text" asp-for="SearchString" />
                         
                     </p>
                     <p >
@@ -69,8 +57,6 @@
                             <option value="">Choose a Genre:</option>
                         </select>    
                     </p>
-
-
 
                     <input type="submit" value="Filter" />
                     <p></p>
@@ -83,17 +69,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Publisher)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Reviewer)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
+
+
             <td>
                 @Html.DisplayFor(modelItem => item.ReviewerRating)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReviewText)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ESRBRating)
@@ -101,9 +80,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Genre)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReleaseDate)
-            </td>
+
             <td>
                         <a asp-page="./Edit" class="btn btn-sm btn-outline-dark bg-primary text-white px-3" asp-route-id="@item.ID">Edit</a> 
                         <a asp-page="./Details" class="btn btn-sm btn-outline-dark bg-primary text-white px-3" asp-route-id="@item.ID">Details</a> 
