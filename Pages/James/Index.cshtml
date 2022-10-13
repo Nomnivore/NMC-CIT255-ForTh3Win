@@ -10,6 +10,14 @@
             color: #111;
         }
 
+        a {
+            text-decoration: none;
+        }
+
+        h1 {
+            color: #9747FF;
+        }
+
         body {
             background-color: #30233E;
         }
@@ -93,6 +101,11 @@
                 <option value="Tabletop">Tabletop </option>
                 <option value="TacticalRPG">Tactical RPG</option>
                 <option value="TurnBasedStrategy">Turn Based Strategy</option>
+            </select>
+            <select name="sortOrder" class="searchElement">
+                <option value="">Sort...</option>
+                <option value="desc">Descending</option>
+                <option value="asc">Ascending</option>
             </select>
             <button type="submit" value="Search" id="searchBtn" class="searchBtns">Search</button>
             <br /><br /><button class="searchBtns"><a asp-page="Create" style="color:black">Create New</a></button>

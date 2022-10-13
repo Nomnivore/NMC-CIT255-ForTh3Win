@@ -4,72 +4,125 @@
 @{
     ViewData["Title"] = "Edit";
 }
+<head>
+    <style>
+        * {
+            color: lightgray;
+        }
 
-<h1>Edit</h1>
+        h1 {
+            color: #9747FF;
+        }
 
-<h4>Review</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Review.ID" />
-            <div class="form-group">
-                <label asp-for="Review.GameName" class="control-label"></label>
-                <input asp-for="Review.GameName" class="form-control" />
-                <span asp-validation-for="Review.GameName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Review.Publisher" class="control-label"></label>
-                <input asp-for="Review.Publisher" class="form-control" />
-                <span asp-validation-for="Review.Publisher" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Review.Reviewer" class="control-label"></label>
-                <input asp-for="Review.Reviewer" class="form-control" />
-                <span asp-validation-for="Review.Reviewer" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Review.Description" class="control-label"></label>
-                <input asp-for="Review.Description" class="form-control" />
-                <span asp-validation-for="Review.Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Review.ReviewerRating" class="control-label"></label>
-                <input asp-for="Review.ReviewerRating" class="form-control" />
-                <span asp-validation-for="Review.ReviewerRating" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Review.ReviewText" class="control-label"></label>
-                <input asp-for="Review.ReviewText" class="form-control" />
-                <span asp-validation-for="Review.ReviewText" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Review.ESRBRating" class="control-label"></label>
-                <select asp-for="Review.ESRBRating" class="form-control"></select>
-                <span asp-validation-for="Review.ESRBRating" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Review.Genre" class="control-label"></label>
-                <select asp-for="Review.Genre" class="form-control"></select>
-                <span asp-validation-for="Review.Genre" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Review.ReleaseDate" class="control-label"></label>
-                <input asp-for="Review.ReleaseDate" class="form-control" />
-                <span asp-validation-for="Review.ReleaseDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+        body {
+            background-color: #30233E;
+        }
+
+        .plate {
+            background-color: #111;
+            color: lightgray;
+            margin-bottom: 50px;
+            padding: 20px;
+            width: 500px;
+            border-radius: 15px;
+            margin-left,margin-right: auto;
+        }
+
+        .row {
+            justify-content: center;
+        }
+
+        .form-group {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Edit</h1>
+    <hr />
+    <div class="row">
+        <div class="plate">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Review.ID" />
+                <div class="form-group">
+                    <input asp-for="Review.GameName" class="form-control" placeholder="Title" />
+                    <span asp-validation-for="Review.GameName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input asp-for="Review.Publisher" class="form-control" placeholder="Publisher" />
+                    <span asp-validation-for="Review.Publisher" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input asp-for="Review.Reviewer" class="form-control" placeholder="Reviewer" />
+                    <span asp-validation-for="Review.Reviewer" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input asp-for="Review.ReviewerRating" class="form-control" placeholder="Score" />
+                    <span asp-validation-for="Review.ReviewerRating" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <select asp-for="Review.ESRBRating" class="form-control">
+                        <option value="">ESRB Rating</option>
+                        <option value="Everyone">Everyone</option>
+                        <option value="EveryoneTenPlus">Everyone 10+</option>
+                        <option value="Teen">Teen</option>
+                        <option value="Mature">Mature 17+</option>
+                    </select>
+                    <span asp-validation-for="Review.ESRBRating" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <select asp-for="Review.Genre" class="form-control">
+                        <option value="">Genres</option>
+                        <option value="FourX">4X</option>
+                        <option value="Adventure">Adventure</option>
+                        <option value="BattleRoyale">Battle Royale</option>
+                        <option value="Fighting">Fighting</option>
+                        <option value="Horror">Horror</option>
+                        <option value="MassivelyMultiplayer">Massively Multiplayer</option>
+                        <option value="Metroidvania">Metroidvania</option>
+                        <option value="MOBA">MOBA</option>
+                        <option value="PartyGame">Party Game</option>
+                        <option value="Platformer">Platformer</option>
+                        <option value="Puzzle">Puzzle</option>
+                        <option value="Racing">Racing</option>
+                        <option value="RealTimeStrategy">Real Time Strategy</option>
+                        <option value="Rhythm">Rhythm</option>
+                        <option value="Rougelike">Rougelike</option>
+                        <option value="Sandbox">Sandbox</option>
+                        <option value="Shooter">Shooter</option>
+                        <option value="Simulation">Simulation</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Survival">Survival</option>
+                        <option value="Tabletop">Tabletop </option>
+                        <option value="TacticalRPG">Tactical RPG</option>
+                        <option value="TurnBasedStrategy">Turn Based Strategy</option>
+                    </select>
+                    <span asp-validation-for="Review.Genre" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input asp-for="Review.ReleaseDate" class="form-control"  placeholder="Release Date"/>
+                    <span asp-validation-for="Review.ReleaseDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <textarea asp-for="Review.Description" class="form-control" placeholder="Description" rows="3"></textarea>
+                    <span asp-validation-for="Review.Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <textarea asp-for="Review.ReviewText" class="form-control" placeholder="Review" rows="3"></textarea>
+                    <span asp-validation-for="Review.ReviewText" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-page="./Index">Back to List</a>
-</div>
-
+    <div>
+        <a asp-page="./Index">Back to List</a>
+    </div>
+</body>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

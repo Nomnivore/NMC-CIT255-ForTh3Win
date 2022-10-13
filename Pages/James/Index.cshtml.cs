@@ -25,28 +25,43 @@ namespace ForTh3Win.Pages.James
         public string SearchSort { get; set; }
         public ESRBEnum ESRBSort { get; set; }
         public GenreEnum GenreSort { get; set; }
+        public string? SortOrder { get; set; }
 
         public IList<Review> Review { get;set; } = default!;
 
-        public async Task OnGetAsync(string searchString, string esrbSearch, string genreSearch)
+        public async Task OnGetAsync(string searchString, string esrbSearch, string genreSearch, string sortOrder)
         {
             
             IQueryable<Review> reviewList = from r in _context.Review select r;
-            if (!String.IsNullOrEmpty(searchString))
+            if (!string.IsNullOrEmpty(searchString))
             {
                 SearchSort = searchString;
                 reviewList = reviewList.Where(r => r.GameName.Contains(SearchSort));
             }
-            if (!String.IsNullOrEmpty(esrbSearch))
+            if (!string.IsNullOrEmpty(esrbSearch))
             {
                 ESRBSort = (ESRBEnum)Enum.Parse(typeof(ESRBEnum), esrbSearch);
                 reviewList = reviewList.Where(r => r.ESRBRating == ESRBSort);
             }
-            if (!String.IsNullOrEmpty(genreSearch))
+            if (!string.IsNullOrEmpty(genreSearch))
             {
                 GenreSort = (GenreEnum)Enum.Parse(typeof(GenreEnum), genreSearch);
                 reviewList = reviewList.Where(r => r.Genre == GenreSort);
             }
+
+            if (!string.IsNullOrEmpty(sortOrder))
+            {
+                SortOrder = sortOrder;
+                if (SortOrder == "asc")
+                {
+                    reviewList = reviewList.OrderByDescending(x => x.GameName).Reverse();
+                }
+                else if (SortOrder == "desc")
+                {
+                    reviewList = reviewList.OrderByDescending(x => x.GameName);
+                }
+            }
+
             if (_context.Review != null)
             {
                 Review = await reviewList.AsNoTracking().ToListAsync();
