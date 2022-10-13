@@ -9,16 +9,19 @@
     <h1 class="display-4" style="font-family:'Book Antiqua'">Game Reviews by Winners</h1>
     <p style="font-family:'Comic Sans MS'">#1 Source for video game reviews. Please choose a Member's page to get started!</p>
 
+    <br />
 
-    <a asp-page="/Russell/Index" class="btn btn-lg btn-outline-info bg-secondary text-white px-5">Russ</a>
-    
-    <p></p>
+    <div class="row">
+        <div class="col">
+            <a asp-page="/Russell/Index" class="btn btn-lg btn-outline-info bg-secondary text-white px-5 float-end">Russ</a>
+        </div>
+        <div class="col">
+            <a asp-page="/Kyle/Index" class="btn btn-lg btn-outline-dark px-5">Kyle</a>
+        </div>
+        <div class="col">
+            <a asp-page="/James/Index" class="float-start btn btn-lg" style="color:#111;background-color:#9747FF;width:120px;">James</a>
+        </div>
 
-    <a asp-page="/Kyle/Index" class="btn btn-lg btn-outline-dark px-5">Kyle</a>
-    
-    <p></p>
-
-    <a asp-page="/James/Index" style="color:#111;background-color:#9747FF;width:120px;">James</a>
-
+    </div>
 </div>
 
