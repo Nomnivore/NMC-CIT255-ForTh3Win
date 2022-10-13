@@ -294,6 +294,66 @@ namespace ForTh3Win.Models
                           ReviewerRating = 4.1,
                           ESRBRating = ESRBEnum.Everyone,
                           ReviewText = "If you can't dedicate 4 hours of your life to a board game, this is a good workaround."
+                      },
+                      new Review
+                      {
+                          GameName = "MultiVersus",
+                          Publisher = "Warner Bros. Games",
+                          Reviewer = "Kyle",
+                          Genre = GenreEnum.Fighting,
+                          ReleaseDate = DateTime.Parse("2022-07-19"),
+                          Description = "MultiVersus is a free-to-play platform fighter that lets you team up with your friends using some of the most iconic characters including Batman, Shaggy, & more!",
+                          ReviewerRating = 4.5,
+                          ESRBRating = ESRBEnum.Teen,
+                          ReviewText = "A team-focused take on the platform fighter genre with all kinds of characters to suit any playstyle. It can be a little buggy at times, and some may dislike its floaty nature, but this is a game you'll want to try! Best of all, it's free!"
+                      },
+                      new Review
+                      {
+                          GameName = "Path of Exile",
+                          Publisher = "Grinding Gear Games",
+                          Reviewer = "Kyle",
+                          Genre = GenreEnum.RPG,
+                          ReleaseDate = DateTime.Parse("2013-10-23"),
+                          Description = "You are an Exile, struggling to survive on the dark continent of Wraeclast, as you fight to earn power that will allow you to exact your revenge against those who wronged you. Created by hardcore gamers, Path of Exile is an online Action RPG set in a dark fantasy world.",
+                          ReviewerRating = 4.4,
+                          ESRBRating = ESRBEnum.Mature,
+                          ReviewText = "What started as a spiritual successor to Blizzard's Diablo 2 has now become so much more, and what some consider to be the king of the Action RPG genre. Updated every 3 months with a full-reset \"league\" format, this game can keep you grinding for hours."
+                      },
+                      new Review
+                      {
+                          GameName = "Gunfire Reborn",
+                          Publisher = "Duoyi Games",
+                          Reviewer = "Kyle",
+                          Genre = GenreEnum.Roguelike,
+                          ReleaseDate = DateTime.Parse("2021-11-17"),
+                          Description = "Gunfire Reborn is a level-based adventure game featuring FPS, Roguelite and RPG. Players can control heroes with various abilities to experience diverse Build gameplay, use various weapons to explore procedurally-generated levels. You can play the game alone, or join 4-player coop.",
+                          ReviewerRating = 4.1,
+                          ESRBRating = ESRBEnum.NotRated,
+                          ReviewText = "A clean hybrid of the FPS and Roguelite genres bring a Borderlands-feeling game with tons of build optoins, level encounters, and bossfights. No two runs are the same!"
+                      },
+                      new Review
+                      {
+                          GameName = "Overwatch 2",
+                          Publisher = "Blizzard Entertainment",
+                          Reviewer = "Kyle",
+                          Genre = GenreEnum.Shooter,
+                          ReleaseDate = DateTime.Parse("2022-10-04"),
+                          Description = "Overwatch 2 is a hero shooter, where players are split into two teams and select a \"hero\" from a roster of 35 characters. Characters are organized into a \"damage\" class, responsible for offensive efforts; a \"support\" class, responsible for healing and buffing; and a \"tank\" class, responsible for the team's protection. Each character has a unique set of skills, made up of active, passive, and ultimate abilities.",
+                          ReviewerRating = 3.5,
+                          ESRBRating = ESRBEnum.Teen,
+                          ReviewText = "While there have been imporvements in the hero shooter format since its predecessor Overwatch, this mostly feels like a fresh coat of paint over the same vehicle. It's fun and fresh, but I'd really like to see how the PvE mode looks when it releases later."
+                      },
+                      new Review
+                      {
+                          GameName = "Super Meat Boy",
+                          Publisher = "Team Meat",
+                          Reviewer = "Kyle",
+                          Genre = GenreEnum.Platformer,
+                          ReleaseDate = DateTime.Parse("2010-11-30"),
+                          Description = "Super Meat Boy is a tough as nails platformer where you play as an animated cube of meat who's trying to save his girlfriend (who happens to be made of bandages) from an evil fetus in a jar wearing a tux.",
+                          ReviewerRating = 4.7,
+                          ESRBRating = ESRBEnum.Teen,
+                          ReviewText = "Super tight controls, tons of levels to play, new characters to unlock, walls to slide on and jump from, frustration to be had from restarting a level 300 times, and best of all: the pride of finally completing that level. A rightfully infuriating experience that I'd recommend to anyone."
                       }
 
                 /*Seed data template
@@ -302,7 +362,7 @@ namespace ForTh3Win.Models
                {
                    GameName = "",
                         Publisher = "",
-                        Reviewer = "Russell",
+                        Reviewer = "",
                         Genre = GenreEnum.,
                         ReleaseDate = DateTime.Parse(""),
                         Description = "",

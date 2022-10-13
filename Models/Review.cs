@@ -54,7 +54,10 @@ namespace ForTh3Win.Models
         Teen,
 
         [Display(Name = "Mature (M)")]
-        Mature
+        Mature,
+
+        [Display(Name = "Not Rated")]
+        NotRated,
     }
 
     public enum GenreEnum
@@ -129,6 +132,9 @@ namespace ForTh3Win.Models
 
         [Display(Name = "Tabletop")]
         Tabletop,
+
+        [Display(Name = "Role Playing Game")]
+        RPG,
        
     }
 }
